@@ -30,11 +30,13 @@ document.addEventListener("mousemove", function(e){
   var x = e.clientX
   var y = e.clientY
 
+  cursor.style.opacity = 1
   cursor.style.left = x + "px"
   cursor.style.top = y + "px"
 })
-const elementLink = document.querySelectorAll("a")
+const elementLink = document.querySelectorAll(".nav-link a")
 elementLink.addEventListener("mouseover", function(e){
-  for(let i = 0; i < elementLink.length; i++)
-  cursor.classList.add("hovering")
+  for(let i=0; i < elementLink.length; i++) {
+    cursor.classList.add("hovering")
+  }
 })
