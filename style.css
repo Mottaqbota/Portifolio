@@ -63,3 +63,18 @@ header nav {
 
 
 /* ====================== [ BODY ] ===================== */
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sec-sobre {
+
+  flex-direction: row;
+  gap: 12px;
+  background-color: #ffffff;
+}
