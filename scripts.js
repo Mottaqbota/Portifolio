@@ -15,8 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .type(" Desenvolvedor Front-End!", {delay: 1600}).delete(24)
         .type("Designer ", {delay: 200} )
         .type("UI/UX!", {delay: 1600}).delete(22)
-        .type("E Posso ser seu Desenvolvedor!", {delay: 2000}).delete(40)
+        .type("A caminho do Full-Stack!!", {delay: 2000}).delete(40)
         // .type("E Posso ser seu Programador!", {delay: 2000}).delete(28)
         .go()
     }, 2000)
 })
+
+ScrollReveal({ reset: true });
+ScrollReveal().reveal('section', { delay: 500 });
