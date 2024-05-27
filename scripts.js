@@ -23,3 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ScrollReveal({ reset: true });
 ScrollReveal().reveal('section', { delay: 500 });
+
+const cursor = document.querySelector("#cursor")
+document.addEventListener("mousemove", function(e){
+  var x = e.clientX
+  var y = e.clientY
+
+  cursor.style.left = x + "px"
+  cursor.style.top = y + "px"
+})
+const elementLink = document.querySelectorAll("a")
+elementLink.addEventListener("mouseover", function(e){
+  for(let i = 0; i < elementLink.length; i++)
+  cursor.classList.add("hovering")
+})
