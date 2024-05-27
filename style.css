@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 /* ====================== [ GLOBAIS ] ===================== */
+#cursor {
+  position: absolute;
+  background-color: #00000085;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  transition: all ease .1s;
+  transform: translate(-50%, -50%);
+}
+#cursor.hovering {
+  transform: scale(2);
+  border: solid 1px #00000085;
+  background-color: transparent;
+}
 
 * {
     font-family: "DM Sans", sans-serif;
@@ -8,10 +22,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
 }
 
 :root {
     --black: #000;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100vw;
 }
 
 a {
@@ -58,7 +81,7 @@ header nav {
 .nav-link:hover::before {
 	left: 0;
 	width: 100%;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 
