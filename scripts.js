@@ -25,18 +25,52 @@ document.addEventListener('DOMContentLoaded', () => {
 ScrollReveal({ reset: true });
 ScrollReveal().reveal('section', { delay: 500 });
 
-const cursor = document.querySelector("#cursor")
-document.addEventListener("mousemove", function(e){
-  var x = e.clientX
-  var y = e.clientY
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor = document.createElement('div');
+  cursor.classList.add('cursor');
+  document.body.appendChild(cursor);
 
-  cursor.style.opacity = 1
-  cursor.style.left = x + "px"
-  cursor.style.top = y + "px"
+  document.addEventListener("mousemove", (e) => {
+      cursor.translate = `${e.clientX}vw`, `${e.clientY}vh`
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+  });
+
+  const hoverElements = ["a", "i", "img", "button", "input"]
+
+  document.addEventListener('mouseover', (e) => {
+    const target = e.target;
+    if (hoverElements.includes(target.tagName.toLowerCase())) {
+        cursor.classList.add('hovering');
+    } else {
+        cursor.classList.remove('hovering');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const target = e.target;
+      if (hoverElements.includes(target.tagName.toLowerCase())) {
+          cursor.classList.remove('hovering');
+      }
+  });
 })
+
 const elementLink = document.querySelectorAll(".nav-link a")
-elementLink.addEventListener("mouseover", function(e){
-  for(let i=0; i < elementLink.length; i++) {
-    cursor.classList.add("hovering")
-  }
+// elementLink.addEventListener("mouseover", (e){
+//   for(let i=0; i < elementLink.length; i++) {
+//     cursor.classList.add("hovering")
+//   }
+// })
+
+var sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log(entry.target)
+    }
+  })
+
+  const sections = document.querySelectorAll("section")
+  sections.forEach(section => {
+    sectionObserver.observe(section);
+  })
 })
