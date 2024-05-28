@@ -1,32 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 /* ====================== [ GLOBAIS ] ===================== */
-#cursor {
-  position: absolute;
+.cursor {
+  z-index: 100;
+  position: fixed;
   background-color: #00000085;
-  width: 16px;
-  height: 16px;
+  border: 1px solid #fff;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
   border-radius: 100%;
-  transition: all ease .1s;
+  transition: all ease .12s;
   transform: translate(-50%, -50%);
 }
-#cursor.hovering {
-  transform: scale(2);
+.cursor.hovering {
+  width: 42px;
+  height: 42px;
+  background-color: #00000030;
   border: solid 1px #00000085;
-  background-color: transparent;
 }
 
 * {
-    font-family: "DM Sans", sans-serif;
-    transition: all .3s ease;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: none;
+  cursor: none !important;
+  font-family: "DM Sans", sans-serif;
+  transition: all .3s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --black: #000;
+  --black: #000;
+}
+
+html {
+  cursor: none;
 }
 
 body {
@@ -38,45 +46,45 @@ body {
 }
 
 a {
-    position: relative;
-    text-decoration: none;
-	white-space: nowrap;
-	font-size: 16px;
-    color: var(--black);
-	font-weight: 500;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 16px;
+  color: var(--black);
+  font-weight: 500;
 }
 
 /* ====================== [ HEADER ] ===================== */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    height: 10vh;
-    padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 10vh;
+  padding: 2rem;
 }
 header nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
 }
 
 .logo {
-    width: 56px;
-    border-radius: 100%;
+  width: 56px;
+  border-radius: 100%;
 }
 
 .nav-link::before {
-    position: absolute;
-    content: "";
-    height: 2px;
-    width: 0%;
-    left: 50%;
-    bottom: 0;
-    transition: all .3s ease;
-    background-color: var(--black);
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 0%;
+  left: 50%;
+  bottom: 0;
+  transition: all .3s ease;
+  background-color: var(--black);
 }
 .nav-link:hover::before {
 	left: 0;
@@ -96,8 +104,29 @@ section {
 }
 
 .sec-sobre {
-
   flex-direction: row;
   gap: 12px;
   background-color: #ffffff;
+}
+
+/* ====================== [ SCROLL-BAR ] ===================== */
+
+::-webkit-scrollbar {
+  background-color: #7a4f4f;
+}
+
+::-webkit-scrollbar-track {
+  margin: 10rem;
+  background: #3a3535;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: solid 4px #3a3535;
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
